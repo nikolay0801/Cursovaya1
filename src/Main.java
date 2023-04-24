@@ -1,7 +1,6 @@
 public class Main {
     static Employee[] employees = new Employee[10];
 // static - чтоб работать с массивом из мейна
-
     public static void main(String[] args) {
         for (int i = 0; i < employees.length; i++) {
             employees[0] = new Employee("Иванов Иван Иванович", 1, 10000);
@@ -23,8 +22,6 @@ public class Main {
         raiseSallary(30, 3);
         System.out.println();
         printAll();
-
-
     }
 
     public static void printAll() {
@@ -61,13 +58,12 @@ public class Main {
         }
         return salary;
     }
-
     public static Employee findMin() {
         // Ищем сотрудника с минималной зарплатой
-        Employee minEmployy = null;
+        Employee minEmployy = employees[0];
         for (Employee employee : employees) {
             // пройдемся циклом по данным
-            if (minEmployy == null || employee.getSallary() < minEmployy.getSallary()) {
+            if (minEmployy == employees[0] || employee.getSallary() < minEmployy.getSallary()) {
                 minEmployy = employee;
                 // Добавили проверку на null
                 // Так же сделали проверку, если зарпалата < той, что у нас написана,то мы нашли минмальноо сотрудника.
@@ -79,12 +75,12 @@ public class Main {
     }
 
     public static Employee findMin(int department) {
-        Employee minEmployy = null;
+        Employee minEmployy = employees[0];
         for (Employee employee : employees) {
             if (employee.getDepartment() != department) {
                 continue;
             }
-            if (minEmployy == null || employee.getSallary() < minEmployy.getSallary()) {
+            if (minEmployy == employees[0] || employee.getSallary() < minEmployy.getSallary()) {
                 minEmployy = employee;
             }
         }
@@ -114,11 +110,8 @@ public class Main {
                 maxEmployee = employee;
             }
         }
-
         return maxEmployee;
-
     }
-
     public static double getAvarege() {
         return sallarySum() / employees.length;
         // общую сумму делим на размер массива,таким образом я нашел среднюю зарплату
@@ -133,12 +126,9 @@ public class Main {
             }
             summ+= employee.getSallary();
             quantity++;
-
         }
         return summ/quantity;
-
     }
-
     public  static void printFullName(){
         for (Employee employee : employees) {
             System.out.println(employee.getFullName());
@@ -151,7 +141,6 @@ public class Main {
                 continue;
             }
             System.out.println(employee.getFullName());
-
         }
     }
     public static void raiseSallary( int prozent){
